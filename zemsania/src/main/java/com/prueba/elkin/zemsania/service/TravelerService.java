@@ -2,6 +2,7 @@ package com.prueba.elkin.zemsania.service;
 
 import com.prueba.elkin.zemsania.dto.TravelerCreateDTO;
 import com.prueba.elkin.zemsania.dto.TravelerDTO;
+import com.prueba.elkin.zemsania.model.Traveler;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

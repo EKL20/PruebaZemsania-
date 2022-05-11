@@ -16,8 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 
 import static com.prueba.elkin.zemsania.exceptions.TravelerError.ELEMENT_NOT_FOUND;
 
@@ -29,37 +27,25 @@ public class TravelerServiceImpl  implements TravelerService {
     private final TravelerRepository repository;
     private final TravelerMapper mapper;
 
+
     @Override
-    @Transactional
     public void save(TravelerCreateDTO TravelerDTO) {
-        log.debug("Request to save Traveler : {}", TravelerDTO);
-        repository.save(mapper.toEntity(TravelerDTO));
+
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Page<TravelerDTO> searchTraveler(String query, Pageable pageable) {
-        log.debug("Request to search Traveler");
-        return repository.search(query, pageable).map(mapper::toDto);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Optional<TravelerDTO> findOne(Long id) {
-        log.debug("Request to get Traveler : {}", id);
-        return repository.findById(id).map(mapper::toDto);
+        return Optional.empty();
     }
 
     @Override
-    @Transactional
     public TravelerDTO update(TravelerCreateDTO TravelerDTO, Long id) {
-        if(!repository.findById(id).isPresent()){
-            throw new GenericConflictException(ELEMENT_NOT_FOUND);
-        }
-        log.debug("Request to Update Traveler : {}",TravelerDTO);
-        Traveler traveler = mapper.toEntity(TravelerDTO);
-        traveler.setId(id);
-        return mapper.toDto(repository.save(traveler));
+        return null;
     }
 
     @Override
@@ -69,13 +55,10 @@ public class TravelerServiceImpl  implements TravelerService {
                 throw new GenericConflictException(ELEMENT_NOT_FOUND);
             }
             return mapper.toDto(repository.searchtBydocument(typeDocument, document));
-                    //searchtBydocument(typeDocument, document).
-                    //stream().map(i -> mapper.toDto(i)).collect(Collectors.toList());
     }
-
 
     @Override
     public void delete(Long id) {
-        repository.deleteById(id);
+
     }
 }

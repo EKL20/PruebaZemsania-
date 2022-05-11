@@ -65,4 +65,16 @@ public class Traveler extends BaseEntity {
     @Size(min= 2, max = 20)
     @Column(name= "city", length = 20, nullable = false)
     private String city;
+
+    public Traveler(boolean b, String maricio, String andres, String londoño, String diaz, int i, String s, String s1, String niquia, String bello) {
+        this.firsName = firsName;
+        this.middleName = middleName;
+        this.firsLastName = firsLastName;
+        this.lastName= lastName;
+        this.typeDocument= typeDocument;
+        this.document= document;
+        this.address= address;
+        this.numberPhone = numberPhone;
+        this.city = city;
+    }
 }
